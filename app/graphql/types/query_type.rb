@@ -8,10 +8,10 @@ module Types
 
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
-    field :messages, [MessageType], null: false
+    field :current_user, UserType, null: false
 
-    def messages
-      QueryResolvers::Messages.new.run
+    def current_user
+      QueryResolvers::CurrentUser.new(context: context).run
     end
   end
 end

@@ -7,17 +7,12 @@ module Mutations
     type Types::UserType
 
     def resolve(credentials:)
-      user = User.create(
-        email: credentials[:email],
-        password: credentials[:password]
-      )
-
-      return user if user.valid?
-
-      # We need the return or the type
-      # errors will be rescued and we'll
-      # see a GraphQL error
-      build_errors(user) and return
+      with_error_check do
+        User.create(
+          email: credentials[:email],
+          password: credentials[:password]
+        )
+      end
     end
   end
 end
