@@ -22,6 +22,8 @@ module Mutations
 
       # return the user and the created token
       # so the client can store it for subsequent requests
+      # even though with the strategy we're using of
+      # storing the current user in session this wont be necessary
       {
         user: user,
         token: token_for(user)
