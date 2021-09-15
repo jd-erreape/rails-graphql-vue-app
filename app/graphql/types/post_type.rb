@@ -5,5 +5,7 @@ module Types
     field :id, ID, null: false
     field :body, String, null: false
     field :user, UserType, null: false
+    field :replies, [PostType], null: true
+    field :replied, PostType, null: true
   end
 end
