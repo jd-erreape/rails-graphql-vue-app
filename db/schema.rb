@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_15_154350) do
+ActiveRecord::Schema.define(version: 2021_09_15_170237) do
 
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "body"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "replied_id"
+    t.index ["replied_id"], name: "fk_rails_3220d12b1d"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -28,5 +30,6 @@ ActiveRecord::Schema.define(version: 2021_09_15_154350) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "posts", "posts", column: "replied_id"
   add_foreign_key "posts", "users"
 end
