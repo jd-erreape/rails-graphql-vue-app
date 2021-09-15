@@ -41,6 +41,9 @@ RSpec/ExpectInHook:
 RSpec/MessageSpies:
   Enabled: false
 
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
 require:
   - rubocop-rails
   - rubocop-rspec

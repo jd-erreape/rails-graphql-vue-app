@@ -8,4 +8,6 @@ RSpec.describe Post, type: :model do
   it { is_expected.to belong_to(:user) }
   it { is_expected.to have_many(:replies).dependent(:destroy) }
   it { is_expected.to belong_to(:replied).optional }
+  it { is_expected.to have_many(:likes).dependent(:destroy) }
+  it { is_expected.to have_many(:dislikes).dependent(:destroy) }
 end

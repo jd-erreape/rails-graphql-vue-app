@@ -7,5 +7,7 @@ module Types
     field :user, UserType, null: false
     field :replies, [PostType], null: true
     field :replied, PostType, null: true
+    field :likes, [LikeType], null: true
+    field :dislikes, [DislikeType], null: true
   end
 end
